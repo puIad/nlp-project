@@ -1,0 +1,243 @@
+{% extends "base.html" %}
+
+{% block title %}AI CV Analyzer - Intelligent Resume Analysis{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="gradient-bg py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <div class="lg:w-1/2 text-white mb-10 lg:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Analyze Your CV with
+                    <span class="text-yellow-300">AI-Powered</span> Insights
+                </h1>
+                <p class="text-xl text-purple-100 mb-8">
+                    Get instant, explainable feedback on your resume. Our NLP-based system 
+                    identifies strengths, weaknesses, and provides actionable recommendations.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{{ url_for('main.upload') }}" 
+                       class="bg-white text-purple-700 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transition-all transform hover:scale-105 text-center">
+                        <i class="fas fa-upload mr-2"></i>Analyze Your CV
+                    </a>
+                    <a href="{{ url_for('main.documentation') }}" 
+                       class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-purple-700 transition-all text-center">
+                        <i class="fas fa-book mr-2"></i>Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lg:w-1/2 flex justify-center">
+                <div class="relative">
+                    <!-- Animated CV illustration -->
+                    <div class="w-80 h-96 bg-white rounded-2xl shadow-2xl p-6 transform hover:rotate-1 transition-transform">
+                        <div class="border-b-2 border-gray-200 pb-4 mb-4">
+                            <div class="h-4 bg-gray-300 rounded w-3/4 mb-2"></div>
+                            <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-3 bg-gray-200 rounded w-full"></div>
+                            <div class="h-3 bg-gray-200 rounded w-5/6"></div>
+                            <div class="h-3 bg-gray-200 rounded w-4/5"></div>
+                        </div>
+                        <div class="mt-6 space-y-3">
+                            <div class="h-3 bg-purple-200 rounded w-full"></div>
+                            <div class="h-3 bg-purple-200 rounded w-3/4"></div>
+                        </div>
+                        
+                        <!-- Scan line animation -->
+                        <div class="absolute inset-0 overflow-hidden rounded-2xl">
+                            <div class="scan-line absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating badges -->
+                    <div class="absolute -top-4 -right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg animate-bounce-slow">
+                        <i class="fas fa-check-circle mr-2"></i>95% Score
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
+                        <i class="fas fa-brain mr-2"></i>AI Analysis
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Powerful CV Analysis Features
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Our AI-powered system provides comprehensive analysis using advanced NLP techniques
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 gradient-bg rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-file-pdf text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Smart PDF Extraction</h3>
+                <p class="text-gray-600">
+                    Advanced text extraction with Unicode normalization ensures accurate parsing 
+                    without word mixing or character corruption.
+                </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 bg-green-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-brain text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">NLP-Based Analysis</h3>
+                <p class="text-gray-600">
+                    Powered by spaCy and semantic embeddings for intelligent section detection 
+                    and named entity recognition.
+                </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 bg-blue-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-chart-line text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Detailed Scoring</h3>
+                <p class="text-gray-600">
+                    Get scores across 5 categories: Experience, Skills, Structure, 
+                    Career Alignment, and Readability.
+                </p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 bg-yellow-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-lightbulb text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Recommendations</h3>
+                <p class="text-gray-600">
+                    Receive personalized suggestions for skills to learn and 
+                    CV improvements based on your career field.
+                </p>
+            </div>
+            
+            <!-- Feature 5 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 bg-red-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fab fa-youtube text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Learning Resources</h3>
+                <p class="text-gray-600">
+                    Get curated YouTube learning suggestions tailored to your 
+                    weak areas and career goals.
+                </p>
+            </div>
+            
+            <!-- Feature 6 -->
+            <div class="section-card bg-gray-50 rounded-2xl p-8 transition-all">
+                <div class="w-14 h-14 bg-purple-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Explainable AI</h3>
+                <p class="text-gray-600">
+                    Every score comes with clear explanations - no black boxes. 
+                    Understand exactly why you received each rating.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                How It Works
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Three simple steps to get comprehensive feedback on your CV
+            </p>
+        </div>
+        
+        <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+            <!-- Step 1 -->
+            <div class="flex-1 text-center">
+                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl font-bold text-blue-600">1</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Enter Your Details</h3>
+                <p class="text-gray-600">
+                    Provide your name, email, and phone number to get started
+                </p>
+            </div>
+            
+            <div class="hidden lg:block">
+                <i class="fas fa-arrow-right text-3xl text-gray-300"></i>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="flex-1 text-center">
+                <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl font-bold text-purple-600">2</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Upload Your CV</h3>
+                <p class="text-gray-600">
+                    Upload your PDF resume and watch the AI analyze it in real-time
+                </p>
+            </div>
+            
+            <div class="hidden lg:block">
+                <i class="fas fa-arrow-right text-3xl text-gray-300"></i>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="flex-1 text-center">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-3xl font-bold text-green-600">3</span>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Get Results</h3>
+                <p class="text-gray-600">
+                    Receive detailed scores, insights, and recommendations instantly
+                </p>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <a href="{{ url_for('main.upload') }}" 
+               class="gradient-bg text-white px-10 py-4 rounded-lg font-semibold text-lg hover:opacity-90 transition-all inline-flex items-center">
+                <i class="fas fa-rocket mr-3"></i>Get Started Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-16 gradient-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2" id="stat-accuracy">95%</div>
+                <div class="text-purple-200">Extraction Accuracy</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">&lt;10s</div>
+                <div class="text-purple-200">Processing Time</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">9</div>
+                <div class="text-purple-200">CV Sections Analyzed</div>
+            </div>
+            <div>
+                <div class="text-4xl md:text-5xl font-bold mb-2">100+</div>
+                <div class="text-purple-200">Skills Recognized</div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

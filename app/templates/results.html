@@ -1,0 +1,344 @@
+{% extends "base.html" %}
+
+{% block title %}CV Analysis Results - AI CV Analyzer{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Header -->
+    <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            CV Analysis Results
+        </h1>
+        <p class="text-gray-600">
+            Analysis completed for <span class="font-semibold">{{ analysis.user.full_name }}</span>
+            <span class="text-gray-400">•</span>
+            {{ analysis.created_at.strftime('%B %d, %Y at %H:%M') }}
+        </p>
+    </div>
+    
+    <!-- Score Overview -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <div class="flex flex-col lg:flex-row items-center justify-between">
+            <!-- Main Score Circle -->
+            <div class="text-center lg:text-left mb-8 lg:mb-0">
+                <div class="score-circle mx-auto lg:mx-0 mb-4">
+                    <svg viewBox="0 0 160 160" class="w-full h-full">
+                        <circle cx="80" cy="80" r="70" fill="none" stroke-width="12" class="score-bg"/>
+                        <circle cx="80" cy="80" r="70" fill="none" stroke-width="12" 
+                                class="score-progress"
+                                stroke="{{ '#22c55e' if analysis.score >= 70 else '#eab308' if analysis.score >= 40 else '#ef4444' }}"
+                                stroke-linecap="round"
+                                id="scoreCircle"/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div>
+                            <span id="scoreValue" class="text-4xl font-bold text-gray-900">0</span>
+                            <span class="text-xl text-gray-500">/100</span>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Overall Score</h2>
+                <p class="text-gray-600">
+                    {% if analysis.score >= 80 %}
+                        Excellent CV! Very competitive.
+                    {% elif analysis.score >= 60 %}
+                        Good CV with room for improvement.
+                    {% elif analysis.score >= 40 %}
+                        Average CV. Consider improvements.
+                    {% else %}
+                        Needs significant improvement.
+                    {% endif %}
+                </p>
+            </div>
+            
+            <!-- Key Metrics -->
+            <div class="flex-1 lg:ml-12">
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-user-tie text-purple-500 mr-3"></i>
+                            <span class="text-gray-600 text-sm">Experience Level</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">{{ analysis.experience_level }}</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-briefcase text-blue-500 mr-3"></i>
+                            <span class="text-gray-600 text-sm">Career Field</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">{{ analysis.career_field }}</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-code text-green-500 mr-3"></i>
+                            <span class="text-gray-600 text-sm">Skills Found</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">{{ analysis.skills_found|length if analysis.skills_found else 0 }}</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-clock text-yellow-500 mr-3"></i>
+                            <span class="text-gray-600 text-sm">Processing Time</span>
+                        </div>
+                        <p class="text-xl font-bold text-gray-900">{{ analysis.processing_time }}s</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Score Breakdown -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-chart-bar mr-3 text-purple-600"></i>Score Breakdown
+        </h3>
+        
+        <div class="space-y-6">
+            <!-- Experience Score -->
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium text-gray-700">Experience Level (25%)</span>
+                    <span class="font-bold text-gray-900">{{ analysis.experience_score|round(1) }}/100</span>
+                </div>
+                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="progress-bar h-full gradient-bg rounded-full" style="width: 0%" data-width="{{ analysis.experience_score }}%"></div>
+                </div>
+            </div>
+            
+            <!-- Skills Score -->
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium text-gray-700">Skills Relevance (25%)</span>
+                    <span class="font-bold text-gray-900">{{ analysis.skills_score|round(1) }}/100</span>
+                </div>
+                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="progress-bar h-full bg-green-500 rounded-full" style="width: 0%" data-width="{{ analysis.skills_score }}%"></div>
+                </div>
+            </div>
+            
+            <!-- Structure Score -->
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium text-gray-700">CV Structure & Completeness (20%)</span>
+                    <span class="font-bold text-gray-900">{{ analysis.structure_score|round(1) }}/100</span>
+                </div>
+                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="progress-bar h-full bg-blue-500 rounded-full" style="width: 0%" data-width="{{ analysis.structure_score }}%"></div>
+                </div>
+            </div>
+            
+            <!-- Career Score -->
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium text-gray-700">Career Field Alignment (15%)</span>
+                    <span class="font-bold text-gray-900">{{ analysis.career_score|round(1) }}/100</span>
+                </div>
+                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="progress-bar h-full bg-yellow-500 rounded-full" style="width: 0%" data-width="{{ analysis.career_score }}%"></div>
+                </div>
+            </div>
+            
+            <!-- Readability Score -->
+            <div>
+                <div class="flex justify-between mb-2">
+                    <span class="font-medium text-gray-700">Readability & Clarity (15%)</span>
+                    <span class="font-bold text-gray-900">{{ analysis.readability_score|round(1) }}/100</span>
+                </div>
+                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="progress-bar h-full bg-purple-500 rounded-full" style="width: 0%" data-width="{{ analysis.readability_score }}%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Detected Sections -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">
+                <i class="fas fa-list mr-3 text-blue-600"></i>CV Sections
+            </h3>
+            
+            <div class="space-y-4">
+                {% for section_name, section_data in analysis.sections_detected.items() %}
+                <div class="flex items-center justify-between p-4 rounded-lg {{ 'bg-green-50' if section_data.detected else 'bg-gray-50' }}">
+                    <div class="flex items-center">
+                        {% if section_data.detected %}
+                            <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                        {% else %}
+                            <i class="fas fa-times-circle text-gray-400 mr-3"></i>
+                        {% endif %}
+                        <span class="font-medium text-gray-700">{{ section_name.replace('_', ' ').title() }}</span>
+                    </div>
+                    {% if section_data.detected %}
+                        <span class="px-3 py-1 rounded-full text-sm font-medium {{ 'bg-green-200 text-green-800' if section_data.quality_score >= 7 else 'bg-yellow-200 text-yellow-800' if section_data.quality_score >= 4 else 'bg-red-200 text-red-800' }}">
+                            {{ section_data.quality_score|round(1) }}/10
+                        </span>
+                    {% else %}
+                        <span class="px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-600">
+                            Missing
+                        </span>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Skills Found -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">
+                <i class="fas fa-code mr-3 text-green-600"></i>Skills Detected
+            </h3>
+            
+            {% if analysis.skills_found %}
+                <div class="flex flex-wrap gap-2">
+                    {% for skill in analysis.skills_found %}
+                        <span class="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-medium hover:bg-purple-100 hover:text-purple-700 transition-colors">
+                            {{ skill }}
+                        </span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-gray-500">No specific skills detected. Consider adding a dedicated skills section.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Strengths & Weaknesses -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        <!-- Strengths -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">
+                <i class="fas fa-thumbs-up mr-3 text-green-600"></i>Strengths
+            </h3>
+            
+            {% if analysis.recommendations and analysis.recommendations.strengths %}
+                <ul class="space-y-3">
+                    {% for strength in analysis.recommendations.strengths %}
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">{{ strength }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-gray-500">Analysis in progress...</p>
+            {% endif %}
+        </div>
+        
+        <!-- Weaknesses -->
+        <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">
+                <i class="fas fa-exclamation-triangle mr-3 text-yellow-600"></i>Areas for Improvement
+            </h3>
+            
+            {% if analysis.recommendations and analysis.recommendations.weaknesses %}
+                <ul class="space-y-3">
+                    {% for weakness in analysis.recommendations.weaknesses %}
+                        <li class="flex items-start">
+                            <i class="fas fa-arrow-right text-yellow-500 mr-3 mt-1"></i>
+                            <span class="text-gray-700">{{ weakness }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-gray-500">No major weaknesses identified.</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Recommendations -->
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-6">
+            <i class="fas fa-lightbulb mr-3 text-yellow-600"></i>Recommendations
+        </h3>
+        
+        {% if analysis.recommendations and analysis.recommendations.recommendations %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {% for rec in analysis.recommendations.recommendations %}
+                    <div class="flex items-start p-4 bg-blue-50 rounded-lg">
+                        <div class="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center mr-3 flex-shrink-0">
+                            {{ loop.index }}
+                        </div>
+                        <p class="text-gray-700">{{ rec }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-gray-500">No specific recommendations at this time.</p>
+        {% endif %}
+    </div>
+    
+    <!-- YouTube Suggestions -->
+    {% if analysis.recommendations and analysis.recommendations.youtube_suggestions %}
+    <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-6">
+            <i class="fab fa-youtube mr-3 text-red-600"></i>Learning Resources
+        </h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for suggestion in analysis.recommendations.youtube_suggestions %}
+                <a href="https://www.youtube.com/results?search_query={{ suggestion.query|urlencode }}" 
+                   target="_blank"
+                   class="block p-6 bg-gray-50 rounded-xl hover:bg-red-50 transition-colors group">
+                    <div class="flex items-center mb-3">
+                        <i class="fab fa-youtube text-red-500 text-2xl mr-3 group-hover:scale-110 transition-transform"></i>
+                        <span class="font-semibold text-gray-900">{{ suggestion.title }}</span>
+                    </div>
+                    <p class="text-sm text-gray-600">{{ suggestion.reason }}</p>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Actions -->
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="{{ url_for('main.upload') }}" 
+           class="gradient-bg text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-all text-center">
+            <i class="fas fa-upload mr-2"></i>Analyze Another CV
+        </a>
+        <button onclick="window.print()" 
+                class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all">
+            <i class="fas fa-print mr-2"></i>Print Results
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const score = {{ analysis.score }};
+    
+    // Animate score circle
+    const scoreCircle = document.getElementById('scoreCircle');
+    const circumference = 2 * Math.PI * 70; // radius = 70
+    const offset = circumference - (score / 100) * circumference;
+    
+    setTimeout(() => {
+        scoreCircle.style.strokeDashoffset = offset;
+    }, 100);
+    
+    // Animate score number
+    const scoreValue = document.getElementById('scoreValue');
+    let currentScore = 0;
+    const increment = score / 50;
+    
+    const scoreInterval = setInterval(() => {
+        currentScore += increment;
+        if (currentScore >= score) {
+            currentScore = score;
+            clearInterval(scoreInterval);
+        }
+        scoreValue.textContent = Math.round(currentScore);
+    }, 20);
+    
+    // Animate progress bars
+    document.querySelectorAll('.progress-bar').forEach(bar => {
+        setTimeout(() => {
+            bar.style.width = bar.dataset.width;
+        }, 300);
+    });
+});
+</script>
+{% endblock %}
