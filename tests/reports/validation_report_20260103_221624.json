@@ -1,0 +1,548 @@
+{
+  "timestamp": "2026-01-03T22:16:24.594005",
+  "total_cvs_tested": 7,
+  "overall_pass_rate": "4/7 (57.1%)",
+  "accuracy_by_metric": {
+    "score_range": "100.0%",
+    "career_field": "100.0%",
+    "experience_level": "57.1%",
+    "section_detection": "100.0%",
+    "skill_extraction": "100.0%"
+  },
+  "average_accuracy": "91.4%",
+  "detailed_reports": [
+    {
+      "cv_name": "senior_software_engineer",
+      "overall_passed": false,
+      "score": 89.97857142857143,
+      "expected_score_range": "70-95",
+      "experience_level": "Junior",
+      "expected_experience_level": "Senior",
+      "career_field": "Information Technology",
+      "expected_career_field": "Information Technology",
+      "skills_found": 30,
+      "required_skills_found": 6,
+      "total_required_skills": 6,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "work_experience",
+        "skills",
+        "projects",
+        "certifications",
+        "achievements"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "70-95",
+          "actual": 89.97857142857143,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Information Technology",
+          "actual": "Information Technology",
+          "details": "Acceptable fields: ['Information Technology', 'Software Engineering', 'Data Engineering', 'Cybersecurity']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": false,
+          "expected": "Senior",
+          "actual": "Junior",
+          "details": "Acceptable: ['Senior']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "professional_summary",
+            "work_experience",
+            "education",
+            "skills"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "work_experience",
+            "skills",
+            "projects",
+            "certifications",
+            "achievements"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "python",
+            "javascript",
+            "django",
+            "react",
+            "aws",
+            "docker"
+          ],
+          "actual": [
+            "python",
+            "javascript",
+            "django",
+            "react",
+            "aws",
+            "docker"
+          ],
+          "details": "Found 6/6 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "entry_level_data_scientist",
+      "overall_passed": true,
+      "score": 71.03,
+      "expected_score_range": "55-80",
+      "experience_level": "Fresher",
+      "expected_experience_level": "Fresher",
+      "career_field": "Data Science",
+      "expected_career_field": "Data Science",
+      "skills_found": 26,
+      "required_skills_found": 4,
+      "total_required_skills": 4,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "skills",
+        "certifications",
+        "hobbies"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "55-80",
+          "actual": 71.03,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Data Science",
+          "actual": "Data Science",
+          "details": "Acceptable fields: ['Data Science', 'Machine Learning', 'Data Analytics', 'Artificial Intelligence', 'Data Engineering']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": true,
+          "expected": "Fresher",
+          "actual": "Fresher",
+          "details": "Acceptable: ['Fresher', 'Entry']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "education",
+            "skills"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "skills",
+            "certifications",
+            "hobbies"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "python",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "actual": [
+            "python",
+            "machine learning",
+            "tensorflow",
+            "pandas"
+          ],
+          "details": "Found 4/4 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "mid_level_marketing",
+      "overall_passed": true,
+      "score": 76.91666666666667,
+      "expected_score_range": "65-85",
+      "experience_level": "Mid Level",
+      "expected_experience_level": "Mid-Level",
+      "career_field": "Digital Media",
+      "expected_career_field": "Marketing",
+      "skills_found": 21,
+      "required_skills_found": 3,
+      "total_required_skills": 4,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "work_experience",
+        "skills",
+        "certifications",
+        "achievements"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "65-85",
+          "actual": 76.91666666666667,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Marketing",
+          "actual": "Digital Media",
+          "details": "Acceptable fields: ['Marketing', 'Digital Media', 'Business Development']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": true,
+          "expected": "Mid-Level",
+          "actual": "Mid Level",
+          "details": "Acceptable: ['Mid-Level', 'Mid Level']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "professional_summary",
+            "work_experience",
+            "education",
+            "skills"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "work_experience",
+            "skills",
+            "certifications",
+            "achievements"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "seo",
+            "digital marketing",
+            "google analytics",
+            "social media"
+          ],
+          "actual": [
+            "seo",
+            "digital marketing",
+            "google analytics"
+          ],
+          "details": "Found 3/4 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "healthcare_nurse",
+      "overall_passed": false,
+      "score": 84.60333333333332,
+      "expected_score_range": "70-90",
+      "experience_level": "Junior",
+      "expected_experience_level": "Senior",
+      "career_field": "Healthcare",
+      "expected_career_field": "Healthcare",
+      "skills_found": 16,
+      "required_skills_found": 2,
+      "total_required_skills": 2,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "work_experience",
+        "skills",
+        "achievements"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "70-90",
+          "actual": 84.60333333333332,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Healthcare",
+          "actual": "Healthcare",
+          "details": "Acceptable fields: ['Healthcare', 'Medical', 'Nursing']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": false,
+          "expected": "Senior",
+          "actual": "Junior",
+          "details": "Acceptable: ['Senior']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "professional_summary",
+            "work_experience",
+            "education"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "work_experience",
+            "skills",
+            "achievements"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "patient care",
+            "nursing"
+          ],
+          "actual": [
+            "patient care",
+            "nursing"
+          ],
+          "details": "Found 2/2 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "poor_quality",
+      "overall_passed": true,
+      "score": 44.55,
+      "expected_score_range": "30-55",
+      "experience_level": "Junior",
+      "expected_experience_level": "Junior",
+      "career_field": "Teacher",
+      "expected_career_field": "General",
+      "skills_found": 0,
+      "required_skills_found": 0,
+      "total_required_skills": 0,
+      "sections_detected": [
+        "education",
+        "work_experience",
+        "skills",
+        "hobbies"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "30-55",
+          "actual": 44.55,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "General",
+          "actual": "Teacher",
+          "details": "Acceptable fields: ['General', 'Unknown', 'Teacher']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": true,
+          "expected": "Junior",
+          "actual": "Junior",
+          "details": "Acceptable: ['Junior']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [],
+          "actual": [
+            "education",
+            "work_experience",
+            "skills",
+            "hobbies"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [],
+          "actual": [],
+          "details": "Found 0/0 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "ml_engineer",
+      "overall_passed": true,
+      "score": 80.11666666666667,
+      "expected_score_range": "75-95",
+      "experience_level": "Mid Level",
+      "expected_experience_level": "Mid-Level",
+      "career_field": "Machine Learning",
+      "expected_career_field": "Machine Learning",
+      "skills_found": 32,
+      "required_skills_found": 5,
+      "total_required_skills": 5,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "work_experience",
+        "skills",
+        "projects",
+        "certifications"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "75-95",
+          "actual": 80.11666666666667,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Machine Learning",
+          "actual": "Machine Learning",
+          "details": "Acceptable fields: ['Machine Learning', 'Data Science', 'Artificial Intelligence', 'NLP Engineer', 'Computer Vision']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": true,
+          "expected": "Mid-Level",
+          "actual": "Mid Level",
+          "details": "Acceptable: ['Mid-Level', 'Mid Level']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "professional_summary",
+            "work_experience",
+            "education",
+            "skills"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "work_experience",
+            "skills",
+            "projects",
+            "certifications"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "python",
+            "tensorflow",
+            "pytorch",
+            "machine learning",
+            "deep learning"
+          ],
+          "actual": [
+            "python",
+            "tensorflow",
+            "pytorch",
+            "machine learning",
+            "deep learning"
+          ],
+          "details": "Found 5/5 required skills"
+        }
+      ]
+    },
+    {
+      "cv_name": "accountant",
+      "overall_passed": false,
+      "score": 82.31,
+      "expected_score_range": "70-90",
+      "experience_level": "Junior",
+      "expected_experience_level": "Senior",
+      "career_field": "Accountant",
+      "expected_career_field": "Accountant",
+      "skills_found": 28,
+      "required_skills_found": 3,
+      "total_required_skills": 4,
+      "sections_detected": [
+        "professional_summary",
+        "education",
+        "work_experience",
+        "skills",
+        "achievements"
+      ],
+      "validation_results": [
+        {
+          "test_name": "Score Range",
+          "passed": true,
+          "expected": "70-90",
+          "actual": 82.31,
+          "details": "Score within expected range"
+        },
+        {
+          "test_name": "Career Field",
+          "passed": true,
+          "expected": "Accountant",
+          "actual": "Accountant",
+          "details": "Acceptable fields: ['Accountant', 'Finance', 'Banking']"
+        },
+        {
+          "test_name": "Experience Level",
+          "passed": false,
+          "expected": "Senior",
+          "actual": "Junior",
+          "details": "Acceptable: ['Senior']"
+        },
+        {
+          "test_name": "Section Detection",
+          "passed": true,
+          "expected": [
+            "professional_summary",
+            "work_experience",
+            "education"
+          ],
+          "actual": [
+            "professional_summary",
+            "education",
+            "work_experience",
+            "skills",
+            "achievements"
+          ],
+          "details": "All required sections found"
+        },
+        {
+          "test_name": "Skill Extraction",
+          "passed": true,
+          "expected": [
+            "accounting",
+            "gaap",
+            "tax",
+            "excel"
+          ],
+          "actual": [
+            "gaap",
+            "tax",
+            "excel"
+          ],
+          "details": "Found 3/4 required skills"
+        }
+      ]
+    }
+  ]
+}
