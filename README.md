@@ -127,4 +127,5 @@ This project is for educational purposes (school project).
 
 ## Author
 
-AI CV Analyzer Team
+- Mourad Islam FERNANE
+- Ahcene Zakaria AOUANOUK
