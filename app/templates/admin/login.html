@@ -3,23 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - AI CV Analyzer</title>
+    <title>Admin Login - IntelliCV</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 <body class="min-h-screen gradient-bg flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md">
         <div class="text-center mb-8">
-            <div class="w-16 h-16 gradient-bg rounded-xl flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-lock text-white text-2xl"></i>
-            </div>
-            <h1 class="text-2xl font-bold text-gray-900">Admin Login</h1>
-            <p class="text-gray-600 mt-2">AI CV Analyzer Dashboard</p>
+            <img src="{{ url_for('static', filename='logo.svg') }}" alt="IntelliCV" class="w-20 h-20 mx-auto mb-4">
+            <h1 class="text-2xl font-bold gradient-text">IntelliCV Admin</h1>
+            <p class="text-gray-600 mt-2">NLP-Powered Resume Intelligence</p>
         </div>
         
         {% with messages = get_flashed_messages(with_categories=true) %}

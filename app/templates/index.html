@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}AI CV Analyzer - Intelligent Resume Analysis{% endblock %}
+{% block title %}IntelliCV - NLP-Powered Resume Intelligence Platform{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -8,13 +8,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col lg:flex-row items-center justify-between">
             <div class="lg:w-1/2 text-white mb-10 lg:mb-0">
+                <div class="flex items-center mb-4">
+                    <img src="{{ url_for('static', filename='logo.svg') }}" alt="IntelliCV" class="w-16 h-16 mr-4">
+                    <div>
+                        <span class="bg-yellow-400 text-purple-900 text-xs font-bold px-2 py-1 rounded-full">NLP-POWERED</span>
+                    </div>
+                </div>
                 <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                    Analyze Your CV with
-                    <span class="text-yellow-300">AI-Powered</span> Insights
+                    <span class="text-yellow-300">IntelliCV:</span> Smart Resume
+                    Intelligence Platform
                 </h1>
                 <p class="text-xl text-purple-100 mb-8">
-                    Get instant, explainable feedback on your resume. Our NLP-based system 
-                    identifies strengths, weaknesses, and provides actionable recommendations.
+                    Unlock your career potential with advanced Natural Language Processing. 
+                    Get instant, explainable feedback and actionable recommendations powered by AI.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="{{ url_for('main.upload') }}" 
@@ -57,7 +63,7 @@
                         <i class="fas fa-check-circle mr-2"></i>95% Score
                     </div>
                     <div class="absolute -bottom-4 -left-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg">
-                        <i class="fas fa-brain mr-2"></i>AI Analysis
+                        <i class="fas fa-brain mr-2"></i>NLP Analysis
                     </div>
                 </div>
             </div>
@@ -69,11 +75,12 @@
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Powerful CV Analysis Features
+            <span class="bg-purple-100 text-purple-700 text-sm font-semibold px-4 py-1 rounded-full">POWERED BY NLP</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 mt-4">
+                IntelliCV Analysis Features
             </h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Our AI-powered system provides comprehensive analysis using advanced NLP techniques
+                Leverage the power of Natural Language Processing for comprehensive resume intelligence
             </p>
         </div>
         

@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}AI CV Analyzer{% endblock %}</title>
+    <title>{% block title %}IntelliCV - NLP-Powered Resume Intelligence{% endblock %}</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -157,10 +160,11 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="{{ url_for('main.index') }}" class="flex items-center space-x-3">
-                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-                            <i class="fas fa-file-alt text-white text-lg"></i>
+                        <img src="{{ url_for('static', filename='logo.svg') }}" alt="IntelliCV" class="w-10 h-10">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold gradient-text leading-tight">IntelliCV</span>
+                            <span class="text-xs text-gray-500 hidden sm:block">NLP-Powered Intelligence</span>
                         </div>
-                        <span class="text-xl font-bold gradient-text">AI CV Analyzer</span>
                     </a>
                 </div>
                 
@@ -221,8 +225,9 @@
     <footer class="bg-white border-t border-gray-200 mt-auto">
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="text-gray-500 text-sm">
-                    &copy; 2024 AI CV Analyzer - School Project
+                <div class="flex items-center text-gray-500 text-sm">
+                    <img src="{{ url_for('static', filename='favicon.svg') }}" alt="IntelliCV" class="w-5 h-5 mr-2">
+                    &copy; 2026 <span class="font-semibold text-purple-600 mx-1">IntelliCV</span> - NLP-Powered Resume Intelligence Platform
                 </div>
                 <div class="flex space-x-6 mt-4 md:mt-0">
                     <a href="{{ url_for('main.documentation') }}" class="text-gray-500 hover:text-gray-700 text-sm">

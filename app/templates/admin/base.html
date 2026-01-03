@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Admin - AI CV Analyzer{% endblock %}</title>
+    <title>{% block title %}Admin - IntelliCV{% endblock %}</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,10 +30,11 @@
         <aside class="w-64 bg-white shadow-lg">
             <div class="p-6">
                 <a href="{{ url_for('main.index') }}" class="flex items-center space-x-3">
-                    <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center">
-                        <i class="fas fa-file-alt text-white text-lg"></i>
+                    <img src="{{ url_for('static', filename='logo.svg') }}" alt="IntelliCV" class="w-10 h-10">
+                    <div class="flex flex-col">
+                        <span class="text-xl font-bold text-gray-800">IntelliCV</span>
+                        <span class="text-xs text-gray-500">Admin Panel</span>
                     </div>
-                    <span class="text-xl font-bold text-gray-800">CV Analyzer</span>
                 </a>
             </div>
             
