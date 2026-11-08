@@ -1,0 +1,15 @@
+# nlp-project
+
+> AI CV Analyzer built with Python, Flask and NLP. Dual-method PDF extraction with Unicode normalization, spaCy NER and semantic analysis, a 5-category score from 0 to 100, personalized recommendations, YouTube learning suggestions for weak areas, and an admin dashboard with CSV export. MySQL via SQLAlchemy.
+
+## Docs
+
+- [README.md](https://github.com/puIad/nlp-project/blob/master/README.md): features, stack and setup
+
+## Source
+
+- [app/services](https://github.com/puIad/nlp-project/tree/master/app/services): extraction, NLP analysis, scoring
+- [app/routes](https://github.com/puIad/nlp-project/tree/master/app/routes): Flask routes
+- [run.py](https://github.com/puIad/nlp-project/blob/master/run.py): app entry point
+- [create_db.py](https://github.com/puIad/nlp-project/blob/master/create_db.py): database setup
+- [config.py](https://github.com/puIad/nlp-project/blob/master/config.py): configuration
